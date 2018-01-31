@@ -1,3 +1,10 @@
+package org.GhostAutonomousFTC;
+
+import org.GhostAutonomousFTC.ControllerValues;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class StickValues extends ControllerValues<Double> {
   public final static String leftStickY="ly";
   public final static String rightStickY="ry";

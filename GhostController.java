@@ -1,3 +1,4 @@
+package org.GhostAutonomousFTC;
 
 public class GhostController {
   StickValues stickValues=new StickValues();

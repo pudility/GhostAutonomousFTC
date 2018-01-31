@@ -1,3 +1,8 @@
+package org.GhostAutonomousFTC;
+
+import java.util.ArrayList;
+import java.util.Collection;
+
 public class ControllerValues<T> {
   
   private T defaultValue;
@@ -6,10 +11,10 @@ public class ControllerValues<T> {
   private ArrayList<String> symbols;
   
   
-  public ControllerValues(T defaultVal,ArrayList<T> vals,ArrayList<String> syms) {
-    defaultValue=defaultVal;
-    values=new ArrayList<T>(vals);
-    previousValues=new ArrayList<T>(vals);
+  public ControllerValues(T defaultVal, ArrayList<T> vals, ArrayList<String> syms) {
+    defaultValue = defaultVal;
+    values = new ArrayList<T>((Collection<? extends T>) vals);
+    previousValues=new ArrayList<T>((Collection<? extends T>) vals);
     symbols=syms;
     
   }

@@ -1,33 +1,45 @@
+package org.GhostAutonomousFTC;
+
+import java.util.ArrayList;
 
 public class GhostRecorder {
   private String instructions="";
   private int updatesSinceValueChanged=0;
   private StickValues stickValues=new StickValues();
   private ButtonValues buttonValues=new ButtonValues();
-  
+  private TriggerValues triggerValues=new TriggerValues();
+
   public GhostRecorder() {
   }
-  
+
   public void recordLeftStickY(double lsticky) {
     stickValues.setValue(StickValues.leftStickY,lsticky);
   }
-    
+
   public void recordRightStickY(double rsticky) {
     stickValues.setValue(StickValues.rightStickY,rsticky);
   }
-  
+
   public void recordLeftStickX(double lstickx) {
     stickValues.setValue(StickValues.leftStickX,lstickx);
   }
-    
+
   public void recordRightStickX(double rstickx) {
     stickValues.setValue(StickValues.rightStickX,rstickx);
   }
-  
+
+  public void recordRightTrigger(double rtrigger) {
+    triggerValues.setValue(TriggerValues.rightTrigger,rtrigger);
+  }
+
+  public void recordLeftTrigger(double ltrigger) {
+    triggerValues.setValue(TriggerValues.leftTrigger,ltrigger);
+  }
+
   public void recordButtonX(boolean val) {
     buttonValues.setValue(ButtonValues.buttonX,val);
   }
-  
+
   public void recordButtonY(boolean val) {
     buttonValues.setValue(ButtonValues.buttonY,val);
   }
@@ -49,7 +61,7 @@ public class GhostRecorder {
   public void recordDpadRight(boolean val) {
     buttonValues.setValue(ButtonValues.dpadRight,val);
   }
-  
+
   public String getStringOfChangedVals(ControllerValues vals)
   {
     String line="";
@@ -62,9 +74,9 @@ public class GhostRecorder {
     }
     return line;
   }
-  
+
   public void update() {
-    
+
     String line=getStringOfChangedVals(stickValues)+getStringOfChangedVals(buttonValues);
     if(!line.equals(""))
     {
@@ -75,12 +87,12 @@ public class GhostRecorder {
       instructions+=line;
       updatesSinceValueChanged=0;
     }
-    
+
     updatesSinceValueChanged+=1;
-    
+
   }
-    
-  
+
+
   public String getString() {
     return instructions+String.valueOf(updatesSinceValueChanged);
   }
